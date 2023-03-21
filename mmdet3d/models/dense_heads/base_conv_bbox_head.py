@@ -33,8 +33,7 @@ class BaseConvBboxHead(BaseModule):
                  init_cfg=None,
                  *args,
                  **kwargs):
-        super(BaseConvBboxHead, self).__init__(
-            init_cfg=init_cfg, *args, **kwargs)
+        super().__init__(init_cfg=init_cfg, *args, **kwargs)
         assert in_channels > 0
         assert num_cls_out_channels > 0
         assert num_reg_out_channels > 0

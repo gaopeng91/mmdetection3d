@@ -60,7 +60,7 @@ class NoStemRegNet(RegNet):
     """
 
     def __init__(self, arch, init_cfg=None, **kwargs):
-        super(NoStemRegNet, self).__init__(arch, init_cfg=init_cfg, **kwargs)
+        super().__init__(arch, init_cfg=init_cfg, **kwargs)
 
     def _make_stem_layer(self, in_channels, base_channels):
         """Override the original function that do not initialize a stem layer

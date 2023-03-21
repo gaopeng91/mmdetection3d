@@ -63,7 +63,7 @@ class MonoDet3DInferencer(Base3DInferencer):
         # A global counter tracking the number of images processed, for
         # naming of the output images
         self.num_visualized_imgs = 0
-        super(MonoDet3DInferencer, self).__init__(
+        super().__init__(
             model=model,
             weights=weights,
             device=device,

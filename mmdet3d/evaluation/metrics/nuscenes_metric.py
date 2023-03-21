@@ -98,8 +98,7 @@ class NuScenesMetric(BaseMetric):
                  collect_device: str = 'cpu',
                  backend_args: Optional[dict] = None) -> None:
         self.default_prefix = 'NuScenes metric'
-        super(NuScenesMetric, self).__init__(
-            collect_device=collect_device, prefix=prefix)
+        super().__init__(collect_device=collect_device, prefix=prefix)
         if modality is None:
             modality = dict(
                 use_camera=False,

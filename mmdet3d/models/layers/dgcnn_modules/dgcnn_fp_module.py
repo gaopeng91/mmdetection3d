@@ -29,7 +29,7 @@ class DGCNNFPModule(BaseModule):
                  norm_cfg: ConfigType = dict(type='BN1d'),
                  act_cfg: ConfigType = dict(type='ReLU'),
                  init_cfg: OptMultiConfig = None) -> None:
-        super(DGCNNFPModule, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.mlps = nn.Sequential()
         for i in range(len(mlp_channels) - 1):
             self.mlps.add_module(

@@ -51,7 +51,7 @@ class VFELayer(nn.Module):
                  norm_cfg=dict(type='BN1d', eps=1e-3, momentum=0.01),
                  max_out=True,
                  cat_max=True):
-        super(VFELayer, self).__init__()
+        super().__init__()
         self.fp16_enabled = False
         self.cat_max = cat_max
         self.max_out = max_out

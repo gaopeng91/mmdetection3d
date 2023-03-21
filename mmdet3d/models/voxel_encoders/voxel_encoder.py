@@ -21,7 +21,7 @@ class HardSimpleVFE(nn.Module):
     """
 
     def __init__(self, num_features: int = 4) -> None:
-        super(HardSimpleVFE, self).__init__()
+        super().__init__()
         self.num_features = num_features
         self.fp16_enabled = False
 
@@ -60,7 +60,7 @@ class DynamicSimpleVFE(nn.Module):
     def __init__(self,
                  voxel_size=(0.2, 0.2, 4),
                  point_cloud_range=(0, -40, -3, 70.4, 40, 1)):
-        super(DynamicSimpleVFE, self).__init__()
+        super().__init__()
         self.scatter = DynamicScatter(voxel_size, point_cloud_range, True)
         self.fp16_enabled = False
 
@@ -127,7 +127,7 @@ class DynamicVFE(nn.Module):
                  mode='max',
                  fusion_layer=None,
                  return_point_feats=False):
-        super(DynamicVFE, self).__init__()
+        super().__init__()
         assert mode in ['avg', 'max']
         assert len(feat_channels) > 0
         if with_cluster_center:
@@ -327,7 +327,7 @@ class HardVFE(nn.Module):
                  mode='max',
                  fusion_layer=None,
                  return_point_feats=False):
-        super(HardVFE, self).__init__()
+        super().__init__()
         assert len(feat_channels) > 0
         if with_cluster_center:
             in_channels += 3
@@ -533,7 +533,7 @@ class SegVFE(nn.Module):
                  with_pre_norm: bool = True,
                  feat_compression: Optional[int] = None,
                  return_point_feats: bool = False) -> None:
-        super(SegVFE, self).__init__()
+        super().__init__()
         assert mode in ['avg', 'max']
         assert len(feat_channels) > 0
         assert not (voxel_size and grid_shape), \

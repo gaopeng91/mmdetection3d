@@ -41,7 +41,7 @@ def convert_to_kitti_info_version2(info):
 
 
 def _read_imageset_file(path):
-    with open(path, 'r') as f:
+    with open(path) as f:
         lines = f.readlines()
     return [int(line) for line in lines]
 

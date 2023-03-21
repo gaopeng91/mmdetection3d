@@ -58,7 +58,7 @@ class TR3DHead(Base3DDenseHead):
                  train_cfg: Optional[dict] = None,
                  test_cfg: Optional[dict] = None,
                  init_cfg: Optional[dict] = None):
-        super(TR3DHead, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         if ME is None:
             raise ImportError(
                 'Please follow `getting_started.md` to install MinkowskiEngine.`'  # noqa: E501

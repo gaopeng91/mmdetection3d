@@ -60,7 +60,7 @@ class BasicBlock(BaseModule):
                  stride=1,
                  dilation=1,
                  init_cfg=None):
-        super(BasicBlock, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         self.conv1 = build_conv_layer(
             conv_cfg,
             in_channels,
@@ -124,7 +124,7 @@ class Root(BaseModule):
                  kernel_size,
                  add_identity,
                  init_cfg=None):
-        super(Root, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         self.conv = build_conv_layer(
             conv_cfg,
             in_channels,
@@ -194,7 +194,7 @@ class Tree(BaseModule):
                  dilation=1,
                  add_identity=False,
                  init_cfg=None):
-        super(Tree, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         if root_dim is None:
             root_dim = 2 * out_channels
         if level_root:
@@ -312,7 +312,7 @@ class DLANet(BaseModule):
                  with_identity_root=False,
                  pretrained=None,
                  init_cfg=None):
-        super(DLANet, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         if depth not in self.arch_settings:
             raise KeyError(f'invalida depth {depth} for DLA')
 
@@ -440,7 +440,7 @@ class DLANet(BaseModule):
         outs = []
         x = self.base_layer(x)
         for i in range(self.num_levels):
-            x = getattr(self, 'level{}'.format(i))(x)
+            x = getattr(self, f'level{i}')(x)
             if i in self.out_indices:
                 outs.append(x)
         return tuple(outs)

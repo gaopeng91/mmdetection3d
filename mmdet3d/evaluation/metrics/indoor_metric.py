@@ -32,8 +32,7 @@ class IndoorMetric(BaseMetric):
                  iou_thr: List[float] = [0.25, 0.5],
                  collect_device: str = 'cpu',
                  prefix: Optional[str] = None) -> None:
-        super(IndoorMetric, self).__init__(
-            prefix=prefix, collect_device=collect_device)
+        super().__init__(prefix=prefix, collect_device=collect_device)
         self.iou_thr = [iou_thr] if isinstance(iou_thr, float) else iou_thr
 
     def process(self, data_batch: dict, data_samples: Sequence[dict]) -> None:
@@ -110,8 +109,7 @@ class Indoor2DMetric(BaseMetric):
                  iou_thr: Union[float, List[float]] = [0.5],
                  collect_device: str = 'cpu',
                  prefix: Optional[str] = None):
-        super(Indoor2DMetric, self).__init__(
-            prefix=prefix, collect_device=collect_device)
+        super().__init__(prefix=prefix, collect_device=collect_device)
         self.iou_thr = [iou_thr] if isinstance(iou_thr, float) else iou_thr
 
     def process(self, data_batch: dict, data_samples: Sequence[dict]) -> None:

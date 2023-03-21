@@ -18,7 +18,7 @@ class SMOKECoder(BaseBBoxCoder):
     """
 
     def __init__(self, base_depth, base_dims, code_size):
-        super(SMOKECoder, self).__init__()
+        super().__init__()
         self.base_depth = base_depth
         self.base_dims = base_dims
         self.bbox_code_size = code_size

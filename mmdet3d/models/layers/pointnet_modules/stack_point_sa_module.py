@@ -116,7 +116,7 @@ class StackedSAModuleMSG(BaseModule):
                  norm_cfg: dict = dict(type='BN2d', eps=1e-5, momentum=0.01),
                  init_cfg: dict = None,
                  **kwargs) -> None:
-        super(StackedSAModuleMSG, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         assert len(radius) == len(sample_nums) == len(mlp_channels)
 
         self.groupers = nn.ModuleList()

@@ -33,7 +33,7 @@ class PointRCNNRoIHead(Base3DRoIHead):
                  test_cfg: dict,
                  depth_normalizer: dict = 70.0,
                  init_cfg: Optional[dict] = None) -> None:
-        super(PointRCNNRoIHead, self).__init__(
+        super().__init__(
             bbox_head=bbox_head,
             bbox_roi_extractor=bbox_roi_extractor,
             train_cfg=train_cfg,

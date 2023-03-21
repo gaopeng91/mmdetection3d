@@ -50,7 +50,7 @@ class IDAUpsample(BaseModule):
         use_dcn=True,
         init_cfg=None,
     ):
-        super(IDAUpsample, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         self.use_dcn = use_dcn
         self.projs = nn.ModuleList()
         self.ups = nn.ModuleList()
@@ -133,7 +133,7 @@ class DLAUpsample(BaseModule):
                  norm_cfg=None,
                  use_dcn=True,
                  init_cfg=None):
-        super(DLAUpsample, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         self.start_level = start_level
         if in_channels is None:
             in_channels = channels
@@ -143,7 +143,7 @@ class DLAUpsample(BaseModule):
         for i in range(len(channels) - 1):
             j = -i - 2
             setattr(
-                self, 'ida_{}'.format(i),
+                self, f'ida_{i}',
                 IDAUpsample(channels[j], in_channels[j:],
                             scales[j:] // scales[j], norm_cfg, use_dcn))
             scales[j + 1:] = scales[j]
@@ -161,7 +161,7 @@ class DLAUpsample(BaseModule):
         """
         outs = [mlvl_features[-1]]
         for i in range(len(mlvl_features) - self.start_level - 1):
-            ida = getattr(self, 'ida_{}'.format(i))
+            ida = getattr(self, f'ida_{i}')
             ida(mlvl_features, len(mlvl_features) - i - 2, len(mlvl_features))
             outs.insert(0, mlvl_features[-1])
         return outs
@@ -191,7 +191,7 @@ class DLANeck(BaseModule):
                  norm_cfg=None,
                  use_dcn=True,
                  init_cfg=None):
-        super(DLANeck, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         self.start_level = start_level
         self.end_level = end_level
         scales = [2**i for i in range(len(in_channels[self.start_level:]))]

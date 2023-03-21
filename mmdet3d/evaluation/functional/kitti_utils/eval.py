@@ -932,19 +932,19 @@ def kitti_eval_coco_style(gt_annos, dt_annos, current_classes):
         # mAP result: [num_class, num_diff, num_minoverlap]
         o_range = np.array(class_to_range[curcls])[[0, 2, 1]]
         o_range[1] = (o_range[2] - o_range[0]) / (o_range[1] - 1)
-        result += print_str((f'{class_to_name[curcls]} '
-                             'coco AP@{:.2f}:{:.2f}:{:.2f}:'.format(*o_range)))
-        result += print_str((f'bbox AP:{mAPbbox[j, 0]:.2f}, '
-                             f'{mAPbbox[j, 1]:.2f}, '
-                             f'{mAPbbox[j, 2]:.2f}'))
-        result += print_str((f'bev  AP:{mAPbev[j, 0]:.2f}, '
-                             f'{mAPbev[j, 1]:.2f}, '
-                             f'{mAPbev[j, 2]:.2f}'))
-        result += print_str((f'3d   AP:{mAP3d[j, 0]:.2f}, '
-                             f'{mAP3d[j, 1]:.2f}, '
-                             f'{mAP3d[j, 2]:.2f}'))
+        result += print_str(f'{class_to_name[curcls]} '
+                            'coco AP@{:.2f}:{:.2f}:{:.2f}:'.format(*o_range))
+        result += print_str(f'bbox AP:{mAPbbox[j, 0]:.2f}, '
+                            f'{mAPbbox[j, 1]:.2f}, '
+                            f'{mAPbbox[j, 2]:.2f}')
+        result += print_str(f'bev  AP:{mAPbev[j, 0]:.2f}, '
+                            f'{mAPbev[j, 1]:.2f}, '
+                            f'{mAPbev[j, 2]:.2f}')
+        result += print_str(f'3d   AP:{mAP3d[j, 0]:.2f}, '
+                            f'{mAP3d[j, 1]:.2f}, '
+                            f'{mAP3d[j, 2]:.2f}')
         if compute_aos:
-            result += print_str((f'aos  AP:{mAPaos[j, 0]:.2f}, '
-                                 f'{mAPaos[j, 1]:.2f}, '
-                                 f'{mAPaos[j, 2]:.2f}'))
+            result += print_str(f'aos  AP:{mAPaos[j, 0]:.2f}, '
+                                f'{mAPaos[j, 1]:.2f}, '
+                                f'{mAPaos[j, 2]:.2f}')
     return result

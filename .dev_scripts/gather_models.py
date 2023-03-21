@@ -77,7 +77,7 @@ def process_checkpoint(in_file, out_file):
     # add the code here.
     torch.save(checkpoint, out_file)
     sha = subprocess.check_output(['sha256sum', out_file]).decode()
-    final_file = out_file.rstrip('.pth') + '-{}.pth'.format(sha[:8])
+    final_file = out_file.rstrip('.pth') + f'-{sha[:8]}.pth'
     subprocess.Popen(['mv', out_file, final_file])
     return final_file
 
@@ -96,7 +96,7 @@ def get_best_results(log_json_path):
     dataset = get_model_dataset(log_json_path)
     max_dict = dict()
     max_memory = 0
-    with open(log_json_path, 'r') as f:
+    with open(log_json_path) as f:
         for line in f.readlines():
             log_line = json.loads(line)
             if 'mode' not in log_line.keys():
@@ -163,7 +163,7 @@ def main():
         log_txt_path = glob.glob(osp.join(models_root, '*.log'))[0]
         model_performance = get_best_results(log_json_path)
         final_epoch = model_performance['epoch']
-        final_model = 'epoch_{}.pth'.format(final_epoch)
+        final_model = f'epoch_{final_epoch}.pth'
         model_path = osp.join(models_root, final_model)
 
         # skip if the model is still training

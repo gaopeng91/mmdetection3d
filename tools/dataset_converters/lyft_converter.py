@@ -54,14 +54,14 @@ def create_lyft_infos(root_path,
     train_scenes = list(
         filter(lambda x: x in available_scene_names, train_scenes))
     val_scenes = list(filter(lambda x: x in available_scene_names, val_scenes))
-    train_scenes = set([
+    train_scenes = {
         available_scenes[available_scene_names.index(s)]['token']
         for s in train_scenes
-    ])
-    val_scenes = set([
+    }
+    val_scenes = {
         available_scenes[available_scene_names.index(s)]['token']
         for s in val_scenes
-    ])
+    }
 
     test = 'test' in version
     if test:

@@ -89,7 +89,7 @@ class Voxelization(nn.Module):
                  max_num_points,
                  max_voxels=20000,
                  deterministic=True):
-        super(Voxelization, self).__init__()
+        super().__init__()
         """
         Args:
             voxel_size (list): list [x, y, z] size of three dimension

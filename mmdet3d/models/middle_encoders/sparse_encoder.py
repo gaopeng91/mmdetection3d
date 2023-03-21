@@ -267,7 +267,7 @@ class SparseEncoderSASSD(SparseEncoder):
                  encoder_paddings: Tuple[tuple] = ((1, ), (1, 1, 1), (1, 1, 1),
                                                    ((0, 1, 1), 1, 1)),
                  block_type: str = 'conv_module'):
-        super(SparseEncoderSASSD, self).__init__(
+        super().__init__(
             in_channels=in_channels,
             sparse_shape=sparse_shape,
             order=order,

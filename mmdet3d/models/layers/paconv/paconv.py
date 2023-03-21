@@ -47,7 +47,7 @@ class ScoreNet(nn.Module):
                  temp_factor: float = 1.0,
                  norm_cfg: ConfigType = dict(type='BN2d'),
                  bias: Union[bool, str] = 'auto') -> None:
-        super(ScoreNet, self).__init__()
+        super().__init__()
 
         assert score_norm in ['softmax', 'sigmoid', 'identity'], \
             f'unsupported score_norm function {score_norm}'
@@ -162,7 +162,7 @@ class PAConv(nn.Module):
             temp_factor=1.0,
             last_bn=False)
     ) -> None:
-        super(PAConv, self).__init__()
+        super().__init__()
 
         # determine weight kernel size according to used features
         if kernel_input == 'identity':
@@ -339,7 +339,7 @@ class PAConvCUDA(PAConv):
             temp_factor=1.0,
             last_bn=False)
     ) -> None:
-        super(PAConvCUDA, self).__init__(
+        super().__init__(
             in_channels=in_channels,
             out_channels=out_channels,
             num_kernels=num_kernels,

@@ -147,7 +147,7 @@ class TransFusionBBoxCoder(BaseBBoxCoder):
 
 
 @TASK_UTILS.register_module()
-class BBoxBEVL1Cost(object):
+class BBoxBEVL1Cost:
 
     def __init__(self, weight):
         self.weight = weight
@@ -166,7 +166,7 @@ class BBoxBEVL1Cost(object):
 
 
 @TASK_UTILS.register_module()
-class IoU3DCost(object):
+class IoU3DCost:
 
     def __init__(self, weight):
         self.weight = weight

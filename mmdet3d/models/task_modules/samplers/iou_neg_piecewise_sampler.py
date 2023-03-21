@@ -36,9 +36,7 @@ class IoUNegPiecewiseSampler(RandomSampler):
                  neg_pos_ub=-1,
                  add_gt_as_proposals=False,
                  return_iou=False):
-        super(IoUNegPiecewiseSampler,
-              self).__init__(num, pos_fraction, neg_pos_ub,
-                             add_gt_as_proposals)
+        super().__init__(num, pos_fraction, neg_pos_ub, add_gt_as_proposals)
         assert isinstance(neg_piece_fractions, list)
         assert len(neg_piece_fractions) == len(neg_iou_piece_thrs)
         self.neg_piece_fractions = neg_piece_fractions

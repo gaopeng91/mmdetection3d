@@ -57,9 +57,8 @@ class CenterPoint(MVXTwoStageDetector):
                  data_preprocessor: Optional[dict] = None,
                  **kwargs):
 
-        super(CenterPoint,
-              self).__init__(pts_voxel_encoder, pts_middle_encoder,
-                             pts_fusion_layer, img_backbone, pts_backbone,
-                             img_neck, pts_neck, pts_bbox_head, img_roi_head,
-                             img_rpn_head, train_cfg, test_cfg, init_cfg,
-                             data_preprocessor, **kwargs)
+        super().__init__(pts_voxel_encoder, pts_middle_encoder,
+                         pts_fusion_layer, img_backbone, pts_backbone,
+                         img_neck, pts_neck, pts_bbox_head, img_roi_head,
+                         img_rpn_head, train_cfg, test_cfg, init_cfg,
+                         data_preprocessor, **kwargs)

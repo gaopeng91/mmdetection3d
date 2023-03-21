@@ -95,7 +95,7 @@ class PAConvSAModuleMSG(BasePointSAModule):
             temp_factor=1.0,
             last_bn=False)
     ) -> None:
-        super(PAConvSAModuleMSG, self).__init__(
+        super().__init__(
             num_point=num_point,
             radii=radii,
             sample_nums=sample_nums,
@@ -168,7 +168,7 @@ class PAConvSAModule(PAConvSAModuleMSG):
             temp_factor=1.0,
             last_bn=False)
     ) -> None:
-        super(PAConvSAModule, self).__init__(
+        super().__init__(
             mlp_channels=[mlp_channels],
             paconv_num_kernels=[paconv_num_kernels],
             num_point=num_point,
@@ -218,7 +218,7 @@ class PAConvCUDASAModuleMSG(BasePointSAModule):
             temp_factor=1.0,
             last_bn=False)
     ) -> None:
-        super(PAConvCUDASAModuleMSG, self).__init__(
+        super().__init__(
             num_point=num_point,
             radii=radii,
             sample_nums=sample_nums,
@@ -366,7 +366,7 @@ class PAConvCUDASAModule(PAConvCUDASAModuleMSG):
             temp_factor=1.0,
             last_bn=False)
     ) -> None:
-        super(PAConvCUDASAModule, self).__init__(
+        super().__init__(
             mlp_channels=[mlp_channels],
             paconv_num_kernels=[paconv_num_kernels],
             num_point=num_point,

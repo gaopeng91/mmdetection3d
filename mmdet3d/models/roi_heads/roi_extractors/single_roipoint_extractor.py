@@ -21,7 +21,7 @@ class Single3DRoIPointExtractor(nn.Module):
     """
 
     def __init__(self, roi_layer: Optional[dict] = None) -> None:
-        super(Single3DRoIPointExtractor, self).__init__()
+        super().__init__()
         self.roi_layer = self.build_roi_layers(roi_layer)
 
     def build_roi_layers(self, layer_cfg: dict) -> nn.Module:

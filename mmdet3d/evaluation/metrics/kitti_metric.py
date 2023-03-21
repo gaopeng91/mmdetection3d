@@ -61,8 +61,7 @@ class KittiMetric(BaseMetric):
                  collect_device: str = 'cpu',
                  backend_args: Optional[dict] = None) -> None:
         self.default_prefix = 'Kitti metric'
-        super(KittiMetric, self).__init__(
-            collect_device=collect_device, prefix=prefix)
+        super().__init__(collect_device=collect_device, prefix=prefix)
         self.pcd_limit_range = pcd_limit_range
         self.ann_file = ann_file
         self.pklfile_prefix = pklfile_prefix
@@ -97,7 +96,7 @@ class KittiMetric(BaseMetric):
         data_annos = data_infos['data_list']
         if not self.format_only:
             cat2label = data_infos['metainfo']['categories']
-            label2cat = dict((v, k) for (k, v) in cat2label.items())
+            label2cat = {v: k for (k, v) in cat2label.items()}
             assert 'instances' in data_annos[0]
             for i, annos in enumerate(data_annos):
                 if len(annos['instances']) == 0:

@@ -72,7 +72,7 @@ class TR3DAxisAlignedIoULoss(nn.Module):
                  mode: str = 'iou',
                  reduction: str = 'mean',
                  loss_weight: float = 1.0) -> None:
-        super(TR3DAxisAlignedIoULoss, self).__init__()
+        super().__init__()
         assert mode in ['iou', 'diou']
         self.loss = axis_aligned_iou_loss if mode == 'iou' \
             else axis_aligned_diou_loss

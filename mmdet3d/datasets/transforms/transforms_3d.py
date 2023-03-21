@@ -121,7 +121,7 @@ class RandomFlip3D(RandomFlip):
         # `flip_ratio_bev_horizontal` is equal to
         # for flip prob of 2d image when
         # `sync_2d` is True
-        super(RandomFlip3D, self).__init__(
+        super().__init__(
             prob=flip_ratio_bev_horizontal, direction='horizontal', **kwargs)
         self.sync_2d = sync_2d
         self.flip_ratio_bev_horizontal = flip_ratio_bev_horizontal
@@ -214,7 +214,7 @@ class RandomFlip3D(RandomFlip):
         """
         # flip 2D image and its annotations
         if 'img' in input_dict:
-            super(RandomFlip3D, self).transform(input_dict)
+            super().transform(input_dict)
 
         if self.sync_2d and 'img' in input_dict:
             input_dict['pcd_horizontal_flip'] = input_dict['flip']
@@ -1136,7 +1136,7 @@ class IndoorPointSample(PointSample):
     def __init__(self, *args, **kwargs):
         warnings.warn(
             'IndoorPointSample is deprecated in favor of PointSample')
-        super(IndoorPointSample, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
 
 @TRANSFORMS.register_module()
@@ -1895,7 +1895,7 @@ class Resize3D(Resize):
             and 'keep_ratio' keys are updated in result dict.
         """
 
-        super(Resize3D, self).transform(results)
+        super().transform(results)
         self._resize_3d(results)
         return results
 

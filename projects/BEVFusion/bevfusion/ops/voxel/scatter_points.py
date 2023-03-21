@@ -58,7 +58,7 @@ dynamic_scatter = _dynamic_scatter.apply
 class DynamicScatter(nn.Module):
 
     def __init__(self, voxel_size, point_cloud_range, average_points: bool):
-        super(DynamicScatter, self).__init__()
+        super().__init__()
         """Scatters points into voxels, used in the voxel encoder with
            dynamic voxelization
 

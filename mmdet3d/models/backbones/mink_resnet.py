@@ -42,7 +42,7 @@ class MinkResNet(BaseModule):
                  in_channels: int,
                  num_stages: int = 4,
                  pool: bool = True):
-        super(MinkResNet, self).__init__()
+        super().__init__()
         if ME is None:
             raise ImportError(
                 'Please follow `get_started.md` to install MinkowskiEngine.`')

@@ -14,7 +14,7 @@ class DeltaXYZWLHRBBoxCoder(BaseBBoxCoder):
     """
 
     def __init__(self, code_size=7):
-        super(DeltaXYZWLHRBBoxCoder, self).__init__()
+        super().__init__()
         self.code_size = code_size
 
     @staticmethod

@@ -50,7 +50,7 @@ class PanopticSegMetric(SegMetric):
         self.min_num_points = min_num_points
         self.id_offset = id_offset
 
-        super(PanopticSegMetric, self).__init__(
+        super().__init__(
             pklfile_prefix=pklfile_prefix,
             submission_prefix=submission_prefix,
             prefix=prefix,

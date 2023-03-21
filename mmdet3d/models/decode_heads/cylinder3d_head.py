@@ -61,7 +61,7 @@ class Cylinder3DHead(Base3DDecodeHead):
                  conv_seg_kernel_size: int = 3,
                  ignore_index: int = 19,
                  init_cfg: OptMultiConfig = None) -> None:
-        super(Cylinder3DHead, self).__init__(
+        super().__init__(
             channels=channels,
             num_classes=num_classes,
             dropout_ratio=dropout_ratio,

@@ -26,7 +26,7 @@ class FCOS3DBBoxCoder(BaseBBoxCoder):
                  base_dims=None,
                  code_size=7,
                  norm_on_bbox=True):
-        super(FCOS3DBBoxCoder, self).__init__()
+        super().__init__()
         self.base_depths = base_depths
         self.base_dims = base_dims
         self.bbox_code_size = code_size

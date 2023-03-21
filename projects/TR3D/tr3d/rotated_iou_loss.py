@@ -98,7 +98,7 @@ class TR3DRotatedIoU3DLoss(nn.Module):
                  mode: str = 'iou',
                  reduction: str = 'mean',
                  loss_weight: float = 1.0) -> None:
-        super(TR3DRotatedIoU3DLoss, self).__init__()
+        super().__init__()
         assert mode in ['iou', 'diou']
         self.loss = rotated_iou_3d_loss if mode == 'iou' \
             else rotated_diou_3d_loss

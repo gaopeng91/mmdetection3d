@@ -97,7 +97,7 @@ class ChamferDistance(nn.Module):
                  reduction: str = 'mean',
                  loss_src_weight: float = 1.0,
                  loss_dst_weight: float = 1.0) -> None:
-        super(ChamferDistance, self).__init__()
+        super().__init__()
 
         assert mode in ['smooth_l1', 'l1', 'l2']
         assert reduction in ['none', 'sum', 'mean']

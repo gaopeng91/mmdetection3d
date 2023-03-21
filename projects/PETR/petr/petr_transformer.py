@@ -44,7 +44,7 @@ class PETRTransformer(BaseModule):
     """
 
     def __init__(self, encoder=None, decoder=None, init_cfg=None, cross=False):
-        super(PETRTransformer, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         if encoder is not None:
             self.encoder = MODELS.build(encoder)
         else:
@@ -127,7 +127,7 @@ class PETRDNTransformer(BaseModule):
     """
 
     def __init__(self, encoder=None, decoder=None, init_cfg=None, cross=False):
-        super(PETRDNTransformer, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         if encoder is not None:
             self.encoder = MODELS.build(encoder)
         else:
@@ -228,7 +228,7 @@ class PETRTransformerDecoderLayer(BaseTransformerLayer):
                  ffn_num_fcs=2,
                  with_cp=True,
                  **kwargs):
-        super(PETRTransformerDecoderLayer, self).__init__(
+        super().__init__(
             attn_cfgs=attn_cfgs,
             feedforward_channels=feedforward_channels,
             ffn_dropout=ffn_dropout,
@@ -238,8 +238,9 @@ class PETRTransformerDecoderLayer(BaseTransformerLayer):
             ffn_num_fcs=ffn_num_fcs,
             **kwargs)
         assert len(operation_order) == 6
-        assert set(operation_order) == set(
-            ['self_attn', 'norm', 'cross_attn', 'ffn'])
+        assert set(operation_order) == {
+            'self_attn', 'norm', 'cross_attn', 'ffn'
+        }
         self.use_checkpoint = with_cp
 
     def _forward(
@@ -258,7 +259,7 @@ class PETRTransformerDecoderLayer(BaseTransformerLayer):
         Returns:
             Tensor: forwarded results with shape [num_query, bs, embed_dims].
         """
-        x = super(PETRTransformerDecoderLayer, self).forward(
+        x = super().forward(
             query,
             key=key,
             value=value,
@@ -343,7 +344,7 @@ class PETRMultiheadAttention(BaseModule):
                  init_cfg=None,
                  batch_first=False,
                  **kwargs):
-        super(PETRMultiheadAttention, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         if 'dropout' in kwargs:
             warnings.warn(
                 'The arguments `dropout` in MultiheadAttention '
@@ -467,7 +468,7 @@ class PETRTransformerEncoder(TransformerLayerSequence):
     """
 
     def __init__(self, *args, post_norm_cfg=dict(type='LN'), **kwargs):
-        super(PETRTransformerEncoder, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         if post_norm_cfg is not None:
             self.post_norm = TASK_UTILS.build(
                 post_norm_cfg, self.embed_dims)[1] if self.pre_norm else None
@@ -483,7 +484,7 @@ class PETRTransformerEncoder(TransformerLayerSequence):
         Returns:
             Tensor: forwarded results with shape [num_query, bs, embed_dims].
         """
-        x = super(PETRTransformerEncoder, self).forward(*args, **kwargs)
+        x = super().forward(*args, **kwargs)
         if self.post_norm is not None:
             x = self.post_norm(x)
         return x
@@ -505,7 +506,7 @@ class PETRTransformerDecoder(TransformerLayerSequence):
                  return_intermediate=False,
                  **kwargs):
 
-        super(PETRTransformerDecoder, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.return_intermediate = return_intermediate
         if post_norm_cfg is not None:
             self.post_norm = build_norm_layer(post_norm_cfg,

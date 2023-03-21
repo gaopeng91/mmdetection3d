@@ -42,7 +42,7 @@ class DETR3D(MVXTwoStageDetector):
                  train_cfg=None,
                  test_cfg=None,
                  pretrained=None):
-        super(DETR3D, self).__init__(
+        super().__init__(
             img_backbone=img_backbone,
             img_neck=img_neck,
             pts_bbox_head=pts_bbox_head,

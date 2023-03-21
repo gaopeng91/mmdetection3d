@@ -19,7 +19,7 @@ class PointXYZWHLRBBoxCoder(BaseBBoxCoder):
     """
 
     def __init__(self, code_size=7, use_mean_size=True, mean_size=None):
-        super(PointXYZWHLRBBoxCoder, self).__init__()
+        super().__init__()
         self.code_size = code_size
         self.use_mean_size = use_mean_size
         if self.use_mean_size:

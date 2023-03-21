@@ -7,7 +7,7 @@ from mmengine.structures import InstanceData
 from mmdet3d.structures import limit_period
 
 
-class AnchorTrainMixin(object):
+class AnchorTrainMixin:
     """Mixin class for target assigning of dense heads."""
 
     def anchor_target_3d(self,

@@ -12,9 +12,9 @@ from skimage import io
 
 def get_image_index_str(img_idx, use_prefix_id=False):
     if use_prefix_id:
-        return '{:07d}'.format(img_idx)
+        return f'{img_idx:07d}'
     else:
-        return '{:06d}'.format(img_idx)
+        return f'{img_idx:06d}'
 
 
 def get_kitti_info_path(idx,
@@ -33,7 +33,7 @@ def get_kitti_info_path(idx,
     else:
         file_path = Path('testing') / info_type / img_idx_str
     if exist_check and not (prefix / file_path).exists():
-        raise ValueError('file not exist: {}'.format(file_path))
+        raise ValueError(f'file not exist: {file_path}')
     if relative_path:
         return str(file_path)
     else:
@@ -126,7 +126,7 @@ def get_label_anno(label_path):
         'location': [],
         'rotation_y': []
     })
-    with open(label_path, 'r') as f:
+    with open(label_path) as f:
         lines = f.readlines()
     # if len(lines) == 0 or len(lines[0]) < 15:
     #     content = []
@@ -234,7 +234,7 @@ def get_kitti_image_info(path,
         if calib:
             calib_path = get_calib_path(
                 idx, path, training, relative_path=False)
-            with open(calib_path, 'r') as f:
+            with open(calib_path) as f:
                 lines = f.readlines()
             P0 = np.array([float(info) for info in lines[0].split(' ')[1:13]
                            ]).reshape([3, 4])
@@ -417,7 +417,7 @@ class WaymoInfoGatherer:
                 self.training,
                 relative_path=False,
                 use_prefix_id=True)
-            with open(calib_path, 'r') as f:
+            with open(calib_path) as f:
                 lines = f.readlines()
             P0 = np.array([float(info) for info in lines[0].split(' ')[1:13]
                            ]).reshape([3, 4])
@@ -624,7 +624,7 @@ def add_difficulty_to_annos(info):
 
 
 def kitti_result_line(result_dict, precision=4):
-    prec_float = '{' + ':.{}f'.format(precision) + '}'
+    prec_float = '{' + f':.{precision}f' + '}'
     res_line = []
     all_field_default = OrderedDict([
         ('name', None),
@@ -641,7 +641,7 @@ def kitti_result_line(result_dict, precision=4):
     res_dict = OrderedDict(res_dict)
     for key, val in result_dict.items():
         if all_field_default[key] is None and val is None:
-            raise ValueError('you must specify a value for {}'.format(key))
+            raise ValueError(f'you must specify a value for {key}')
         res_dict[key] = val
 
     for key, val in res_dict.items():
@@ -656,7 +656,7 @@ def kitti_result_line(result_dict, precision=4):
             if val is None:
                 res_line.append(str(all_field_default[key]))
             else:
-                res_line.append('{}'.format(val))
+                res_line.append(f'{val}')
         elif key in ['bbox', 'dimensions', 'location']:
             if val is None:
                 res_line += [str(v) for v in all_field_default[key]]

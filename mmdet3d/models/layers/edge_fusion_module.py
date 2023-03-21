@@ -32,7 +32,7 @@ class EdgeFusionModule(BaseModule):
         act_cfg: ConfigType = dict(type='ReLU'),
         norm_cfg: ConfigType = dict(type='BN1d')
     ) -> None:
-        super(EdgeFusionModule, self).__init__()
+        super().__init__()
         self.edge_convs = nn.Sequential(
             ConvModule(
                 feat_channels,

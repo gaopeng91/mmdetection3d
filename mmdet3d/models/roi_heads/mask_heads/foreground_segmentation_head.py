@@ -45,7 +45,7 @@ class ForegroundSegmentationHead(BaseModule):
             activated=True,
             loss_weight=1.0)
     ) -> None:
-        super(ForegroundSegmentationHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.extra_width = extra_width
         self.num_classes = 1
 

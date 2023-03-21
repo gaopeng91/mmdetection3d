@@ -32,7 +32,7 @@ class PointNetFPNeck(BaseModule):
     """
 
     def __init__(self, fp_channels, init_cfg=None):
-        super(PointNetFPNeck, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
 
         self.num_fp = len(fp_channels)
         self.FP_modules = nn.ModuleList()

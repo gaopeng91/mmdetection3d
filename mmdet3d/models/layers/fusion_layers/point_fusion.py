@@ -166,7 +166,7 @@ class PointFusion(BaseModule):
                  align_corners: bool = True,
                  padding_mode: str = 'zeros',
                  lateral_conv: bool = True) -> None:
-        super(PointFusion, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         if isinstance(img_levels, int):
             img_levels = [img_levels]
         if isinstance(img_channels, int):

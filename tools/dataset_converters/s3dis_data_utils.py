@@ -7,7 +7,7 @@ import mmengine
 import numpy as np
 
 
-class S3DISData(object):
+class S3DISData:
     """S3DIS data.
 
     Generate s3dis infos for s3dis_converter.
@@ -153,7 +153,7 @@ class S3DISData(object):
         return annotation
 
 
-class S3DISSegData(object):
+class S3DISSegData:
     """S3DIS dataset used to generate infos for semantic segmentation task.
 
     Args:

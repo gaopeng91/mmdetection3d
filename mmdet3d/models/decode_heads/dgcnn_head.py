@@ -24,7 +24,7 @@ class DGCNNHead(Base3DDecodeHead):
 
     def __init__(self, fp_channels: Sequence[int] = (1216, 512),
                  **kwargs) -> None:
-        super(DGCNNHead, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
         self.FP_module = DGCNNFPModule(
             mlp_channels=fp_channels, act_cfg=self.act_cfg)

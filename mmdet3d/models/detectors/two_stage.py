@@ -27,7 +27,7 @@ class TwoStage3DDetector(Base3DDetector):
         init_cfg: OptMultiConfig = None,
         data_preprocessor: OptConfigType = None,
     ) -> None:
-        super(TwoStage3DDetector, self).__init__(
+        super().__init__(
             data_preprocessor=data_preprocessor, init_cfg=init_cfg)
         self.backbone = MODELS.build(backbone)
 

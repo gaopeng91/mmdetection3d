@@ -26,7 +26,7 @@ class GroupFree3DBBoxCoder(PartialBinBasedBBoxCoder):
                  mean_sizes,
                  with_rot=True,
                  size_cls_agnostic=True):
-        super(GroupFree3DBBoxCoder, self).__init__(
+        super().__init__(
             num_dir_bins=num_dir_bins,
             num_sizes=num_sizes,
             mean_sizes=mean_sizes,

@@ -39,8 +39,7 @@ class TR3DMinkResNet(MinkResNet):
                  pool: bool = True,
                  norm: str = 'instance',
                  num_planes: Tuple[int] = (64, 128, 256, 512)):
-        super(TR3DMinkResNet, self).__init__(depth, in_channels, num_stages,
-                                             pool)
+        super().__init__(depth, in_channels, num_stages, pool)
         block, stage_blocks = self.arch_settings[depth]
         self.inplanes = 64
         norm_layer = ME.MinkowskiInstanceNorm if norm == 'instance' else \

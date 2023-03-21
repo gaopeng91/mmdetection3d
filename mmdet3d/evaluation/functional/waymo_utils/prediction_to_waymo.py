@@ -23,7 +23,7 @@ import numpy as np
 import tensorflow as tf
 
 
-class Prediction2Waymo(object):
+class Prediction2Waymo:
     """Predictions to Waymo converter. The format of prediction results could
     be original format or kitti-format.
 

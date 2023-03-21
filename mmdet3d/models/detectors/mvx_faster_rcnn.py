@@ -12,7 +12,7 @@ class MVXFasterRCNN(MVXTwoStageDetector):
     """Multi-modality VoxelNet using Faster R-CNN."""
 
     def __init__(self, **kwargs):
-        super(MVXFasterRCNN, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
 
 @MODELS.register_module()
@@ -20,7 +20,7 @@ class DynamicMVXFasterRCNN(MVXTwoStageDetector):
     """Multi-modality VoxelNet using Faster R-CNN and dynamic voxelization."""
 
     def __init__(self, **kwargs):
-        super(DynamicMVXFasterRCNN, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
     def extract_pts_feat(
             self,

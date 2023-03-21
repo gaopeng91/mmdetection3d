@@ -54,7 +54,7 @@ class Cylinder3D(EncoderDecoder3D):
                  test_cfg: OptConfigType = None,
                  data_preprocessor: OptConfigType = None,
                  init_cfg: OptMultiConfig = None) -> None:
-        super(Cylinder3D, self).__init__(
+        super().__init__(
             backbone=backbone,
             decode_head=decode_head,
             neck=neck,
