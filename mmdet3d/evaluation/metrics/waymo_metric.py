@@ -106,7 +106,7 @@ class WaymoMetric(KittiMetric):
         else:
             self.idx2metainfo = None
 
-        super(WaymoMetric, self).__init__(
+        super().__init__(
             ann_file=ann_file,
             metric=metric,
             pcd_limit_range=pcd_limit_range,

@@ -83,7 +83,7 @@ class ImVoteNet(Base3DDetector):
                  init_cfg: Optional[dict] = None,
                  **kwargs) -> None:
 
-        super(ImVoteNet, self).__init__(init_cfg=init_cfg, **kwargs)
+        super().__init__(init_cfg=init_cfg, **kwargs)
 
         # point branch
         if pts_backbone is not None:
@@ -184,7 +184,7 @@ class ImVoteNet(Base3DDetector):
 
     def train(self, mode=True):
         """Overload in order to keep image branch modules in eval mode."""
-        super(ImVoteNet, self).train(mode)
+        super().train(mode)
         if self.freeze_img_branch:
             if self.with_img_bbox_head:
                 self.img_bbox_head.eval()

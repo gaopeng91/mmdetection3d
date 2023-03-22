@@ -15,7 +15,7 @@ class Base3DRoIHead(BaseRoIHead):
                  train_cfg=None,
                  test_cfg=None,
                  init_cfg=None):
-        super(Base3DRoIHead, self).__init__(
+        super().__init__(
             bbox_head=bbox_head,
             bbox_roi_extractor=bbox_roi_extractor,
             mask_head=mask_head,

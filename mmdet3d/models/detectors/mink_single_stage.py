@@ -130,7 +130,6 @@ class MinkSingleStage3DDetector(SingleStage3DDetector):
                         state_dict[convert_key] = state_dict[k]
                         del state_dict[k]
 
-        super(MinkSingleStage3DDetector,
-              self)._load_from_state_dict(state_dict, prefix, local_metadata,
-                                          strict, missing_keys,
-                                          unexpected_keys, error_msgs)
+        super()._load_from_state_dict(state_dict, prefix, local_metadata,
+                                      strict, missing_keys, unexpected_keys,
+                                      error_msgs)

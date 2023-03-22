@@ -30,11 +30,11 @@ def make_cuda_ext(name,
         ]
         sources += sources_cuda
     else:
-        print('Compiling {} without CUDA'.format(name))
+        print(f'Compiling {name} without CUDA')
         extension = CppExtension
 
     return extension(
-        name='{}.{}'.format(module, name),
+        name=f'{module}.{name}',
         sources=[os.path.join(*module.split('.'), p) for p in sources],
         include_dirs=extra_include_path,
         define_macros=define_macros,

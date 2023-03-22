@@ -45,7 +45,7 @@ class PointwiseSemanticHead(BaseModule):
         loss_part: dict = dict(
             type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0)
     ) -> None:
-        super(PointwiseSemanticHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.extra_width = extra_width
         self.num_classes = num_classes
         self.seg_score_thr = seg_score_thr

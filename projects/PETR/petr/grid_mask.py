@@ -5,7 +5,7 @@ import torch.nn as nn
 from PIL import Image
 
 
-class Grid(object):
+class Grid:
 
     def __init__(self,
                  use_h,
@@ -89,7 +89,7 @@ class GridMask(nn.Module):
                  ratio=0.5,
                  mode=0,
                  prob=1.):
-        super(GridMask, self).__init__()
+        super().__init__()
         self.use_h = use_h
         self.use_w = use_w
         self.rotate = rotate

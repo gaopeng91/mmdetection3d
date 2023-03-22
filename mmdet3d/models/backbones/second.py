@@ -30,7 +30,7 @@ class SECOND(BaseModule):
                  conv_cfg=dict(type='Conv2d', bias=False),
                  init_cfg=None,
                  pretrained=None):
-        super(SECOND, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         assert len(layer_strides) == len(layer_nums)
         assert len(out_channels) == len(layer_nums)
 

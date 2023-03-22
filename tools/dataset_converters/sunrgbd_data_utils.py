@@ -32,7 +32,7 @@ def random_sampling(points, num_points, replace=None, return_choices=False):
         return points[choices]
 
 
-class SUNRGBDInstance(object):
+class SUNRGBDInstance:
 
     def __init__(self, line):
         data = line.split(' ')
@@ -60,7 +60,7 @@ class SUNRGBDInstance(object):
             [self.centroid, self.size, self.heading_angle[None]])
 
 
-class SUNRGBDData(object):
+class SUNRGBDData:
     """SUNRGBD data.
 
     Generate scannet infos for sunrgbd_converter.

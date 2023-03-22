@@ -22,7 +22,7 @@ version_file = 'mmdet3d/version.py'
 
 
 def get_version():
-    with open(version_file, 'r') as f:
+    with open(version_file) as f:
         exec(compile(f.read(), version_file, 'exec'))
     return locals()['__version__']
 
@@ -47,12 +47,12 @@ def make_cuda_ext(name,
         ]
         sources += sources_cuda
     else:
-        print('Compiling {} without CUDA'.format(name))
+        print(f'Compiling {name} without CUDA')
         extension = CppExtension
         # raise EnvironmentError('CUDA is required to compile MMDetection!')
 
     return extension(
-        name='{}.{}'.format(module, name),
+        name=f'{module}.{name}',
         sources=[os.path.join(*module.split('.'), p) for p in sources],
         include_dirs=extra_include_path,
         define_macros=define_macros,
@@ -110,12 +110,11 @@ def parse_requirements(fname='requirements.txt', with_version=True):
             yield info
 
     def parse_require_file(fpath):
-        with open(fpath, 'r') as f:
+        with open(fpath) as f:
             for line in f.readlines():
                 line = line.strip()
                 if line and not line.startswith('#'):
-                    for info in parse_line(line):
-                        yield info
+                    yield from parse_line(line)
 
     def gen_packages_items():
         if exists(require_fpath):

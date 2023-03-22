@@ -40,7 +40,7 @@ class SepHead(nn.Module):
             norm_cfg=dict(type='BN', eps=1e-3, momentum=0.01),
             **kwargs,
     ):
-        super(SepHead, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
         self.heads = heads
         for head in self.heads:
@@ -110,7 +110,7 @@ class CenterFormerBboxHead(nn.Module):
                  bbox_code_size=7,
                  test_cfg=None,
                  **kawrgs):
-        super(CenterFormerBboxHead, self).__init__()
+        super().__init__()
 
         num_classes = [len(t['class_names']) for t in tasks]
         self.class_names = [t['class_names'] for t in tasks]

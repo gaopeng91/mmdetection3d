@@ -23,7 +23,7 @@ class SASSD(SingleStage3DDetector):
                  test_cfg: OptConfigType = None,
                  data_preprocessor: OptConfigType = None,
                  init_cfg: OptMultiConfig = None):
-        super(SASSD, self).__init__(
+        super().__init__(
             backbone=backbone,
             neck=neck,
             bbox_head=bbox_head,

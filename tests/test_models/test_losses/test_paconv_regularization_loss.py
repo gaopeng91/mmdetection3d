@@ -33,7 +33,7 @@ def test_paconv_regularization_loss():
     class ToyModel(nn.Module):
 
         def __init__(self):
-            super(ToyModel, self).__init__()
+            super().__init__()
 
             self.paconvs = nn.ModuleList()
             self.paconvs.append(PAConv(8, 16, 8))

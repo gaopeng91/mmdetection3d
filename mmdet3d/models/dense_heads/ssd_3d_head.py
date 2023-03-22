@@ -59,7 +59,7 @@ class SSD3DHead(VoteHead):
                  corner_loss: Optional[dict] = None,
                  vote_loss: Optional[dict] = None,
                  init_cfg: Optional[dict] = None) -> None:
-        super(SSD3DHead, self).__init__(
+        super().__init__(
             num_classes,
             bbox_coder,
             train_cfg=train_cfg,

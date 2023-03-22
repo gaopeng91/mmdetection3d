@@ -36,7 +36,7 @@ class PartAggregationROIHead(Base3DRoIHead):
                  train_cfg: dict = None,
                  test_cfg: dict = None,
                  init_cfg: dict = None) -> None:
-        super(PartAggregationROIHead, self).__init__(
+        super().__init__(
             bbox_head=bbox_head,
             bbox_roi_extractor=bbox_roi_extractor,
             train_cfg=train_cfg,

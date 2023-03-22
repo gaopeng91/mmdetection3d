@@ -177,7 +177,7 @@ class GroupFree3DHead(BaseModule):
                  size_reg_loss: Optional[dict] = None,
                  semantic_loss: Optional[dict] = None,
                  init_cfg: Optional[dict] = None):
-        super(GroupFree3DHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.num_classes = num_classes
         self.train_cfg = train_cfg
         self.test_cfg = test_cfg
@@ -937,7 +937,7 @@ class GroupFree3DHead(BaseModule):
 
         mask_targets = gt_labels_3d[assignment].long()
 
-        objectness_masks = points.new_ones((num_candidate))
+        objectness_masks = points.new_ones(num_candidate)
 
         return (sampling_targets, assigned_size_targets, size_class_targets,
                 size_res_targets, dir_class_targets, dir_res_targets,

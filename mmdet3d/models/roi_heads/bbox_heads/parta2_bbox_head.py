@@ -85,7 +85,7 @@ class PartA2BboxHead(BaseModule):
                      reduction='none',
                      loss_weight=1.0),
                  init_cfg: dict = None) -> None:
-        super(PartA2BboxHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.num_classes = num_classes
         self.with_corner_loss = with_corner_loss
         self.bbox_coder = TASK_UTILS.build(bbox_coder)

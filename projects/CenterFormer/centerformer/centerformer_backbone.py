@@ -19,7 +19,7 @@ from .transformer import DeformableTransformerDecoder
 class ChannelAttention(nn.Module):
 
     def __init__(self, in_planes, ratio=16):
-        super(ChannelAttention, self).__init__()
+        super().__init__()
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
         self.max_pool = nn.AdaptiveMaxPool2d(1)
 
@@ -40,7 +40,7 @@ class ChannelAttention(nn.Module):
 class SpatialAttention(nn.Module):
 
     def __init__(self, kernel_size=7):
-        super(SpatialAttention, self).__init__()
+        super().__init__()
 
         self.conv1 = nn.Conv2d(
             2, 1, kernel_size, padding=kernel_size // 2, bias=False)
@@ -57,7 +57,7 @@ class SpatialAttention(nn.Module):
 class MultiFrameSpatialAttention(nn.Module):
 
     def __init__(self, kernel_size=7):
-        super(MultiFrameSpatialAttention, self).__init__()
+        super().__init__()
 
         self.conv1 = nn.Conv2d(
             2, 1, kernel_size, padding=kernel_size // 2, bias=False)
@@ -91,7 +91,7 @@ class BaseDecoderRPN(nn.Module):
             score_threshold=0.1,
             obj_num=500,
             **kwargs):
-        super(BaseDecoderRPN, self).__init__()
+        super().__init__()
         self._layer_strides = [1, 2, -4]
         self._num_filters = ds_num_filters
         self._layer_nums = layer_nums
@@ -362,7 +362,7 @@ class DeformableDecoderRPN(BaseDecoderRPN):
                  train_cfg=None,
                  test_cfg=None,
                  **kwargs):
-        super(DeformableDecoderRPN, self).__init__(
+        super().__init__(
             layer_nums,
             ds_num_filters,
             num_input_features,
@@ -789,7 +789,7 @@ class MultiFrameDeformableDecoderRPN(BaseDecoderRPN):
             obj_num=500,
             frame=1,
             **kwargs):
-        super(MultiFrameDeformableDecoderRPN, self).__init__(
+        super().__init__(
             layer_nums,
             ds_num_filters,
             num_input_features,

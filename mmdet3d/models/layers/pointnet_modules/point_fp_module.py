@@ -28,7 +28,7 @@ class PointFPModule(BaseModule):
                  mlp_channels: List[int],
                  norm_cfg: ConfigType = dict(type='BN2d'),
                  init_cfg: OptMultiConfig = None) -> None:
-        super(PointFPModule, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.mlps = nn.Sequential()
         for i in range(len(mlp_channels) - 1):
             self.mlps.add_module(

@@ -181,7 +181,7 @@ def bbox_overlaps(bboxes1, bboxes2, mode='iou', is_aligned=False, eps=1e-6):
 
 
 @TASK_UTILS.register_module()
-class BBox3DL1Cost(object):
+class BBox3DL1Cost:
     """BBox3DL1Cost.
 
     Args:

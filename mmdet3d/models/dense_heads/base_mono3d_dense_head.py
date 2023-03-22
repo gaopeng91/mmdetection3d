@@ -44,7 +44,7 @@ class BaseMono3DDenseHead(BaseModule, metaclass=ABCMeta):
     """
 
     def __init__(self, init_cfg: OptMultiConfig = None) -> None:
-        super(BaseMono3DDenseHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
 
     def loss(self, x: Tuple[Tensor], batch_data_samples: SampleList,
              **kwargs) -> dict:

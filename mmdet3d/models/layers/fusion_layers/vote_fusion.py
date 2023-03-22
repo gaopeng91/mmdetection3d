@@ -24,7 +24,7 @@ class VoteFusion(nn.Module):
     def __init__(self,
                  num_classes: int = 10,
                  max_imvote_per_pixel: int = 3) -> None:
-        super(VoteFusion, self).__init__()
+        super().__init__()
         self.num_classes = num_classes
         self.max_imvote_per_pixel = max_imvote_per_pixel
 

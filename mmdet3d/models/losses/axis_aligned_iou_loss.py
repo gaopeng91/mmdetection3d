@@ -43,7 +43,7 @@ class AxisAlignedIoULoss(nn.Module):
     def __init__(self,
                  reduction: str = 'mean',
                  loss_weight: float = 1.0) -> None:
-        super(AxisAlignedIoULoss, self).__init__()
+        super().__init__()
         assert reduction in ['none', 'sum', 'mean']
         self.reduction = reduction
         self.loss_weight = loss_weight

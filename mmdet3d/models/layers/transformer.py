@@ -42,9 +42,8 @@ class GroupFree3DMHA(MultiheadAttention):
                  init_cfg: OptMultiConfig = None,
                  batch_first: bool = False,
                  **kwargs) -> None:
-        super(GroupFree3DMHA,
-              self).__init__(embed_dims, num_heads, attn_drop, proj_drop,
-                             dropout_layer, init_cfg, batch_first, **kwargs)
+        super().__init__(embed_dims, num_heads, attn_drop, proj_drop,
+                         dropout_layer, init_cfg, batch_first, **kwargs)
 
     def forward(self,
                 query: Tensor,
@@ -103,7 +102,7 @@ class GroupFree3DMHA(MultiheadAttention):
         else:
             value = value + query_pos
 
-        return super(GroupFree3DMHA, self).forward(
+        return super().forward(
             query=query,
             key=key,
             value=value,
@@ -126,7 +125,7 @@ class ConvBNPositionalEncoding(nn.Module):
     """
 
     def __init__(self, input_channel: int, num_pos_feats: int = 288) -> None:
-        super(ConvBNPositionalEncoding, self).__init__()
+        super().__init__()
         self.position_embedding_head = nn.Sequential(
             nn.Conv1d(input_channel, num_pos_feats, kernel_size=1),
             nn.BatchNorm1d(num_pos_feats), nn.ReLU(inplace=True),

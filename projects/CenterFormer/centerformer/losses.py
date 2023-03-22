@@ -32,7 +32,7 @@ class FastFocalLoss(nn.Module):
     """
 
     def __init__(self, focal_factor=2):
-        super(FastFocalLoss, self).__init__()
+        super().__init__()
         self.focal_factor = focal_factor
 
     def forward(self, out, target, ind, mask, cat):

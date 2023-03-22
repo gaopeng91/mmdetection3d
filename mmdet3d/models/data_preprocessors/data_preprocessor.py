@@ -89,7 +89,7 @@ class Det3DDataPreprocessor(DetDataPreprocessor):
                  rgb_to_bgr: bool = False,
                  boxtype2tensor: bool = True,
                  batch_augments: Optional[List[dict]] = None) -> None:
-        super(Det3DDataPreprocessor, self).__init__(
+        super().__init__(
             mean=mean,
             std=std,
             pad_size_divisor=pad_size_divisor,

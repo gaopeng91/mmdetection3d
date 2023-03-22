@@ -63,7 +63,7 @@ assert args.mode in ['train', 'test'], 'Currently we only support ' \
 config_paths = []
 
 if args.input_file is not None:
-    with open(args.input_file, 'r') as fi:
+    with open(args.input_file) as fi:
         config_paths = fi.read().strip().split('\n')
 else:
     while True:

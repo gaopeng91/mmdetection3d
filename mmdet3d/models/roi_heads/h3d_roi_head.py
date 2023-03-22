@@ -26,7 +26,7 @@ class H3DRoIHead(Base3DRoIHead):
                  train_cfg: dict = None,
                  test_cfg: dict = None,
                  init_cfg: dict = None):
-        super(H3DRoIHead, self).__init__(
+        super().__init__(
             bbox_head=bbox_head,
             train_cfg=train_cfg,
             test_cfg=test_cfg,

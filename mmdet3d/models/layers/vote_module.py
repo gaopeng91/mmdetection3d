@@ -52,7 +52,7 @@ class VoteModule(nn.Module):
                  with_res_feat: bool = True,
                  vote_xyz_range: List[float] = None,
                  vote_loss: OptConfigType = None) -> None:
-        super(VoteModule, self).__init__()
+        super().__init__()
         self.in_channels = in_channels
         self.vote_per_seed = vote_per_seed
         self.gt_per_seed = gt_per_seed

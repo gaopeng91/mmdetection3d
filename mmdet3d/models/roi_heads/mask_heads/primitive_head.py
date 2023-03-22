@@ -63,7 +63,7 @@ class PrimitiveHead(BaseModule):
                  semantic_reg_loss: Optional[dict] = None,
                  semantic_cls_loss: Optional[dict] = None,
                  init_cfg: Optional[dict] = None):
-        super(PrimitiveHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         # bounding boxes centers,  face centers and edge centers
         assert primitive_mode in ['z', 'xy', 'line']
         # The dimension of primitive semantic information.

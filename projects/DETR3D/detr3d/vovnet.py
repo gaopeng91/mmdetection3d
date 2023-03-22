@@ -99,7 +99,7 @@ def dw_conv3x3(in_channels,
                padding=1):
     """3x3 convolution with padding."""
     return [
-        ('{}_{}/dw_conv3x3'.format(module_name, postfix),
+        (f'{module_name}_{postfix}/dw_conv3x3',
          nn.Conv2d(
              in_channels,
              out_channels,
@@ -108,7 +108,7 @@ def dw_conv3x3(in_channels,
              padding=padding,
              groups=out_channels,
              bias=False)),
-        ('{}_{}/pw_conv1x1'.format(module_name, postfix),
+        (f'{module_name}_{postfix}/pw_conv1x1',
          nn.Conv2d(
              in_channels,
              out_channels,
@@ -119,7 +119,7 @@ def dw_conv3x3(in_channels,
              bias=False)),
         ('{}_{}/pw_norm'.format(module_name,
                                 postfix), nn.BatchNorm2d(out_channels)),
-        ('{}_{}/pw_relu'.format(module_name, postfix), nn.ReLU(inplace=True)),
+        (f'{module_name}_{postfix}/pw_relu', nn.ReLU(inplace=True)),
     ]
 
 
@@ -180,7 +180,7 @@ def conv1x1(in_channels,
 class Hsigmoid(nn.Module):
 
     def __init__(self, inplace=True):
-        super(Hsigmoid, self).__init__()
+        super().__init__()
         self.inplace = inplace
 
     def forward(self, x):
@@ -190,7 +190,7 @@ class Hsigmoid(nn.Module):
 class eSEModule(nn.Module):
 
     def __init__(self, channel, reduction=4):
-        super(eSEModule, self).__init__()
+        super().__init__()
         self.avg_pool = nn.AdaptiveAvgPool2d(1)
         self.fc = nn.Conv2d(channel, channel, kernel_size=1, padding=0)
         self.hsigmoid = Hsigmoid()
@@ -215,7 +215,7 @@ class _OSA_module(nn.Module):
                  identity=False,
                  depthwise=False):
 
-        super(_OSA_module, self).__init__()
+        super().__init__()
 
         self.identity = identity
         self.depthwise = depthwise
@@ -226,8 +226,8 @@ class _OSA_module(nn.Module):
             self.isReduced = True
             self.conv_reduction = nn.Sequential(
                 OrderedDict(
-                    conv1x1(in_channel, stage_ch,
-                            '{}_reduction'.format(module_name), '0')))
+                    conv1x1(in_channel, stage_ch, f'{module_name}_reduction',
+                            '0')))
         for i in range(layer_per_block):
             if self.depthwise:
                 self.layers.append(
@@ -283,7 +283,7 @@ class _OSA_stage(nn.Sequential):
                  SE=False,
                  depthwise=False):
 
-        super(_OSA_stage, self).__init__()
+        super().__init__()
 
         if not stage_num == 2:
             self.add_module(
@@ -338,7 +338,7 @@ class VoVNet(BaseModule):
             out_features (list[str]): name of the layers whose outputs should
                 be returned in forward. Can be anything in "stem", "stage2" ...
         """
-        super(VoVNet, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         self.frozen_stages = frozen_stages
         self.norm_eval = norm_eval
 
@@ -363,7 +363,7 @@ class VoVNet(BaseModule):
         stem = conv3x3(input_ch, stem_ch[0], 'stem', '1', 2)
         stem += conv_type(stem_ch[0], stem_ch[1], 'stem', '2', 1)
         stem += conv_type(stem_ch[1], stem_ch[2], 'stem', '3', 2)
-        self.add_module('stem', nn.Sequential((OrderedDict(stem))))
+        self.add_module('stem', nn.Sequential(OrderedDict(stem)))
         current_stirde = 4
         self._out_feature_strides = {
             'stem': current_stirde,
@@ -433,7 +433,7 @@ class VoVNet(BaseModule):
     def train(self, mode=True):
         """Convert the model into training mode while keep normalization layer
         freezed."""
-        super(VoVNet, self).train(mode)
+        super().train(mode)
         self._freeze_stages()
         if mode and self.norm_eval:
             for m in self.modules():

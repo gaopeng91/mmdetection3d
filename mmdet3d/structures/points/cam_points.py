@@ -22,7 +22,7 @@ class CameraPoints(BasePoints):
     """
 
     def __init__(self, tensor, points_dim=3, attribute_dims=None):
-        super(CameraPoints, self).__init__(
+        super().__init__(
             tensor, points_dim=points_dim, attribute_dims=attribute_dims)
         self.rotation_axis = 1
 

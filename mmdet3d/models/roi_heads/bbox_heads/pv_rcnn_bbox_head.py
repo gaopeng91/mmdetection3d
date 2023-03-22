@@ -69,7 +69,7 @@ class PVRCNNBBoxHead(BaseModule):
         init_cfg: Optional[dict] = dict(
             type='Xavier', layer=['Conv2d', 'Conv1d'], distribution='uniform')
     ) -> None:
-        super(PVRCNNBBoxHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.init_cfg = init_cfg
         self.num_classes = num_classes
         self.with_corner_loss = with_corner_loss

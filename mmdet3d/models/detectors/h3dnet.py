@@ -41,7 +41,7 @@ class H3DNet(TwoStage3DDetector):
                  init_cfg: Optional[dict] = None,
                  data_preprocessor: Optional[dict] = None,
                  **kwargs) -> None:
-        super(H3DNet, self).__init__(
+        super().__init__(
             backbone=backbone,
             neck=neck,
             rpn_head=rpn_head,

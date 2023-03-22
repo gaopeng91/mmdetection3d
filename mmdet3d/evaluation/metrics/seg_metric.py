@@ -40,8 +40,7 @@ class SegMetric(BaseMetric):
                  **kwargs):
         self.pklfile_prefix = pklfile_prefix
         self.submission_prefix = submission_prefix
-        super(SegMetric, self).__init__(
-            prefix=prefix, collect_device=collect_device)
+        super().__init__(prefix=prefix, collect_device=collect_device)
 
     def process(self, data_batch: dict, data_samples: Sequence[dict]) -> None:
         """Process one batch of data samples and predictions.

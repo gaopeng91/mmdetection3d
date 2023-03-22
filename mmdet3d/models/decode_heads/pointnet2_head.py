@@ -33,7 +33,7 @@ class PointNet2Head(Base3DDecodeHead):
                                                          (128, 128, 128, 128)),
                  fp_norm_cfg: ConfigType = dict(type='BN2d'),
                  **kwargs) -> None:
-        super(PointNet2Head, self).__init__(**kwargs)
+        super().__init__(**kwargs)
 
         self.num_fp = len(fp_channels)
         self.FP_modules = nn.ModuleList()

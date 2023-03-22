@@ -23,7 +23,7 @@ class Single3DRoIAwareExtractor(BaseModule):
     def __init__(self,
                  roi_layer: Optional[dict] = None,
                  init_cfg: Optional[dict] = None) -> None:
-        super(Single3DRoIAwareExtractor, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.roi_layer = self.build_roi_layers(roi_layer)
 
     def build_roi_layers(self, layer_cfg: dict) -> nn.Module:

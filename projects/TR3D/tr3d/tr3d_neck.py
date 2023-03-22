@@ -26,7 +26,7 @@ class TR3DNeck(BaseModule):
     """
 
     def __init__(self, in_channels: Tuple[int], out_channels: int):
-        super(TR3DNeck, self).__init__()
+        super().__init__()
         self._init_layers(in_channels[1:], out_channels)
 
     def _init_layers(self, in_channels: Tuple[int], out_channels: int):

@@ -95,7 +95,7 @@ class PointRCNNBboxHead(BaseModule):
                      loss_weight=1.0),
                  with_corner_loss: bool = True,
                  init_cfg: Optional[dict] = None) -> None:
-        super(PointRCNNBboxHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.num_classes = num_classes
         self.num_sa = len(sa_channels)
         self.with_corner_loss = with_corner_loss

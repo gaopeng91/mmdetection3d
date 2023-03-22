@@ -25,8 +25,7 @@ class InstanceSegMetric(BaseMetric):
     def __init__(self,
                  collect_device: str = 'cpu',
                  prefix: Optional[str] = None):
-        super(InstanceSegMetric, self).__init__(
-            prefix=prefix, collect_device=collect_device)
+        super().__init__(prefix=prefix, collect_device=collect_device)
 
     def process(self, data_batch: dict, data_samples: Sequence[dict]) -> None:
         """Process one batch of data samples and predictions.

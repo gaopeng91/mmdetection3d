@@ -21,7 +21,7 @@ from waymo_open_dataset.utils.frame_utils import \
     parse_range_image_and_camera_projection
 
 
-class Waymo2KITTI(object):
+class Waymo2KITTI:
     """Waymo to KITTI converter.
 
     This class serves as the converter to change the waymo raw data to KITTI

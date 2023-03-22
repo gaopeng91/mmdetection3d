@@ -55,8 +55,7 @@ class DETR3DHead(DETRHead):
         self.bbox_coder = TASK_UTILS.build(bbox_coder)
         self.pc_range = self.bbox_coder.pc_range
         self.num_cls_fcs = num_cls_fcs - 1
-        super(DETR3DHead, self).__init__(
-            *args, transformer=transformer, **kwargs)
+        super().__init__(*args, transformer=transformer, **kwargs)
         # DETR sampling=False, so use PseudoSampler, format the result
         sampler_cfg = dict(type='PseudoSampler')
         self.sampler = TASK_UTILS.build(sampler_cfg)
@@ -263,8 +262,8 @@ class DETR3DHead(DETRHead):
                                                      batch_bbox_preds,
                                                      batch_gt_instances_3d)
 
-        num_total_pos = sum((inds.numel() for inds in pos_inds_list))
-        num_total_neg = sum((inds.numel() for inds in neg_inds_list))
+        num_total_pos = sum(inds.numel() for inds in pos_inds_list)
+        num_total_neg = sum(inds.numel() for inds in neg_inds_list)
         return (labels_list, label_weights_list, bbox_targets_list,
                 bbox_weights_list, num_total_pos, num_total_neg)
 

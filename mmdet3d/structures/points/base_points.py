@@ -8,7 +8,7 @@ import torch
 from ..bbox_3d.utils import rotation_3d_in_axis
 
 
-class BasePoints(object):
+class BasePoints:
     """Base class for Points.
 
     Args:

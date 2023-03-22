@@ -16,7 +16,7 @@ class GroupFree3DNet(SingleStage3DDetector):
                  test_cfg=None,
                  init_cfg=None,
                  **kwargs):
-        super(GroupFree3DNet, self).__init__(
+        super().__init__(
             backbone=backbone,
             bbox_head=bbox_head,
             train_cfg=train_cfg,

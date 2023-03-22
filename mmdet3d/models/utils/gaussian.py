@@ -17,7 +17,7 @@ def gaussian_2d(shape: Tuple[int, int], sigma: float = 1) -> np.ndarray:
     Returns:
         np.ndarray: Generated gaussian map.
     """
-    m, n = [(ss - 1.) / 2. for ss in shape]
+    m, n = ((ss - 1.) / 2. for ss in shape)
     y, x = np.ogrid[-m:m + 1, -n:n + 1]
 
     h = np.exp(-(x * x + y * y) / (2 * sigma * sigma))

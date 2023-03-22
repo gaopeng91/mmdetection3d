@@ -45,7 +45,7 @@ class BaseDGCNNGFModule(nn.Module):
                  normalize_xyz: bool = False,
                  grouper_return_grouped_xyz: bool = False,
                  grouper_return_grouped_idx: bool = False) -> None:
-        super(BaseDGCNNGFModule, self).__init__()
+        super().__init__()
 
         assert len(sample_nums) == len(
             mlp_channels
@@ -193,7 +193,7 @@ class DGCNNGFModule(BaseDGCNNGFModule):
                  pool_mode: str = 'max',
                  normalize_xyz: bool = False,
                  bias: Union[bool, str] = 'auto') -> None:
-        super(DGCNNGFModule, self).__init__(
+        super().__init__(
             mlp_channels=[mlp_channels],
             sample_nums=[num_sample],
             knn_modes=[knn_mode],

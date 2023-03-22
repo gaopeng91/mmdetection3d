@@ -57,7 +57,7 @@ class BasePointSAModule(nn.Module):
                  normalize_xyz: bool = False,
                  grouper_return_grouped_xyz: bool = False,
                  grouper_return_grouped_idx: bool = False) -> None:
-        super(BasePointSAModule, self).__init__()
+        super().__init__()
 
         assert len(radii) == len(sample_nums) == len(mlp_channels)
         assert pool_mod in ['max', 'avg']
@@ -274,7 +274,7 @@ class PointSAModuleMSG(BasePointSAModule):
                  pool_mod: str = 'max',
                  normalize_xyz: bool = False,
                  bias: Union[bool, str] = 'auto') -> None:
-        super(PointSAModuleMSG, self).__init__(
+        super().__init__(
             num_point=num_point,
             radii=radii,
             sample_nums=sample_nums,
@@ -341,7 +341,7 @@ class PointSAModule(PointSAModuleMSG):
                  fps_mod: List[str] = ['D-FPS'],
                  fps_sample_range_list: List[int] = [-1],
                  normalize_xyz: bool = False) -> None:
-        super(PointSAModule, self).__init__(
+        super().__init__(
             mlp_channels=[mlp_channels],
             num_point=num_point,
             radii=[radius],

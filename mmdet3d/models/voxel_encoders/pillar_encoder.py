@@ -47,7 +47,7 @@ class PillarFeatureNet(nn.Module):
                  norm_cfg=dict(type='BN1d', eps=1e-3, momentum=0.01),
                  mode='max',
                  legacy=True):
-        super(PillarFeatureNet, self).__init__()
+        super().__init__()
         assert len(feat_channels) > 0
         self.legacy = legacy
         if with_cluster_center:
@@ -198,7 +198,7 @@ class DynamicPillarFeatureNet(PillarFeatureNet):
                  norm_cfg=dict(type='BN1d', eps=1e-3, momentum=0.01),
                  mode='max',
                  legacy=True):
-        super(DynamicPillarFeatureNet, self).__init__(
+        super().__init__(
             in_channels,
             feat_channels,
             with_distance,

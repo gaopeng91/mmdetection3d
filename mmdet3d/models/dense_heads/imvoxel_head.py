@@ -59,7 +59,7 @@ class ImVoxelHead(BaseModule):
                  train_cfg: OptConfigType = None,
                  test_cfg: OptConfigType = None,
                  init_cfg: OptConfigType = None):
-        super(ImVoxelHead, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         self.pts_assign_threshold = pts_assign_threshold
         self.pts_center_threshold = pts_center_threshold
         self.prior_generator = TASK_UTILS.build(prior_generator)

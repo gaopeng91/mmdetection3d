@@ -73,7 +73,7 @@ class TransFusionHead(nn.Module):
         test_cfg=None,
         bbox_coder=None,
     ):
-        super(TransFusionHead, self).__init__()
+        super().__init__()
 
         self.fp16_enabled = False
 

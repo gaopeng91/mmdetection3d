@@ -95,7 +95,7 @@ class H3DBboxHead(BaseModule):
                  proposal_objectness_loss: Optional[dict] = None,
                  primitive_center_loss: Optional[dict] = None,
                  init_cfg: dict = None):
-        super(H3DBboxHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.num_classes = num_classes
         self.train_cfg = train_cfg
         self.test_cfg = test_cfg

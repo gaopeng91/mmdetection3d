@@ -23,7 +23,7 @@ class PartA2(TwoStage3DDetector):
                  test_cfg: dict = None,
                  init_cfg: dict = None,
                  data_preprocessor: Optional[dict] = None):
-        super(PartA2, self).__init__(
+        super().__init__(
             backbone=backbone,
             neck=neck,
             rpn_head=rpn_head,

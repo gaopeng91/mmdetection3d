@@ -7,7 +7,7 @@ from mmdet3d.structures.bbox_3d import get_box_type
 
 
 @TASK_UTILS.register_module()
-class BboxOverlapsNearest3D(object):
+class BboxOverlapsNearest3D:
     """Nearest 3D IoU Calculator.
 
     Note:
@@ -55,7 +55,7 @@ class BboxOverlapsNearest3D(object):
 
 
 @TASK_UTILS.register_module()
-class BboxOverlaps3D(object):
+class BboxOverlaps3D:
     """3D IoU Calculator.
 
     Args:
@@ -177,7 +177,7 @@ def bbox_overlaps_3d(bboxes1, bboxes2, mode='iou', coordinate='camera'):
 
 
 @TASK_UTILS.register_module()
-class AxisAlignedBboxOverlaps3D(object):
+class AxisAlignedBboxOverlaps3D:
     """Axis-aligned 3D Overlaps (IoU) Calculator."""
 
     def __call__(self, bboxes1, bboxes2, mode='iou', is_aligned=False):

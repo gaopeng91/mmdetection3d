@@ -65,8 +65,7 @@ class LyftMetric(BaseMetric):
                  collect_device: str = 'cpu',
                  backend_args: Optional[dict] = None) -> None:
         self.default_prefix = 'Lyft metric'
-        super(LyftMetric, self).__init__(
-            collect_device=collect_device, prefix=prefix)
+        super().__init__(collect_device=collect_device, prefix=prefix)
         self.ann_file = ann_file
         self.data_root = data_root
         self.modality = modality

@@ -6,7 +6,7 @@ from mmdet3d.registry import TASK_UTILS
 
 
 @TASK_UTILS.register_module()
-class Anchor3DRangeGenerator(object):
+class Anchor3DRangeGenerator:
     """3D Anchor Generator by range.
 
     This anchor generator generates anchors by the given range in different
@@ -249,7 +249,7 @@ class AlignedAnchor3DRangeGenerator(Anchor3DRangeGenerator):
     """
 
     def __init__(self, align_corner=False, **kwargs):
-        super(AlignedAnchor3DRangeGenerator, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.align_corner = align_corner
 
     def anchors_single_range(self,
@@ -353,7 +353,7 @@ class AlignedAnchor3DRangeGeneratorPerCls(AlignedAnchor3DRangeGenerator):
     """
 
     def __init__(self, **kwargs):
-        super(AlignedAnchor3DRangeGeneratorPerCls, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         assert len(self.scales) == 1, 'Multi-scale feature map levels are' + \
             ' not supported currently in this kind of anchor generator.'
 

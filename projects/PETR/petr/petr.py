@@ -38,12 +38,10 @@ class PETR(MVXTwoStageDetector):
                  init_cfg=None,
                  data_preprocessor=None,
                  **kwargs):
-        super(PETR,
-              self).__init__(pts_voxel_layer, pts_middle_encoder,
-                             pts_fusion_layer, img_backbone, pts_backbone,
-                             img_neck, pts_neck, pts_bbox_head, img_roi_head,
-                             img_rpn_head, train_cfg, test_cfg, init_cfg,
-                             data_preprocessor)
+        super().__init__(pts_voxel_layer, pts_middle_encoder, pts_fusion_layer,
+                         img_backbone, pts_backbone, img_neck, pts_neck,
+                         pts_bbox_head, img_roi_head, img_rpn_head, train_cfg,
+                         test_cfg, init_cfg, data_preprocessor)
         self.grid_mask = GridMask(
             True, True, rotate=1, offset=False, ratio=0.5, mode=1, prob=0.7)
         self.use_grid_mask = use_grid_mask

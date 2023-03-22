@@ -16,8 +16,7 @@ class AnchorFreeBBoxCoder(PartialBinBasedBBoxCoder):
     """
 
     def __init__(self, num_dir_bins, with_rot=True):
-        super(AnchorFreeBBoxCoder, self).__init__(
-            num_dir_bins, 0, [], with_rot=with_rot)
+        super().__init__(num_dir_bins, 0, [], with_rot=with_rot)
         self.num_dir_bins = num_dir_bins
         self.with_rot = with_rot
 

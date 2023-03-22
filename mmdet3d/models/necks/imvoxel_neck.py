@@ -16,7 +16,7 @@ class OutdoorImVoxelNeck(BaseModule):
     """
 
     def __init__(self, in_channels, out_channels):
-        super(OutdoorImVoxelNeck, self).__init__()
+        super().__init__()
         self.model = nn.Sequential(
             ResModule(in_channels, in_channels),
             ConvModule(
@@ -78,7 +78,7 @@ class IndoorImVoxelNeck(BaseModule):
     """
 
     def __init__(self, in_channels, out_channels, n_blocks):
-        super(IndoorImVoxelNeck, self).__init__()
+        super().__init__()
         self.n_scales = len(n_blocks)
         n_channels = in_channels
         for i in range(len(n_blocks)):

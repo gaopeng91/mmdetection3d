@@ -1170,7 +1170,7 @@ class MonoDet3DInferencerLoader(BaseTransform):
             "key 'calib' and 'img' must be in input dict"
         if isinstance(single_input['calib'], str):
             calib_path = single_input['calib']
-            with open(calib_path, 'r') as f:
+            with open(calib_path) as f:
                 lines = f.readlines()
             cam2img = np.array([
                 float(info) for info in lines[0].split(' ')[0:16]

@@ -62,7 +62,7 @@ class LidarDet3DInferencer(Base3DInferencer):
         # A global counter tracking the number of frames processed, for
         # naming of the output results
         self.num_visualized_frames = 0
-        super(LidarDet3DInferencer, self).__init__(
+        super().__init__(
             model=model,
             weights=weights,
             device=device,

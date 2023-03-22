@@ -9,7 +9,7 @@ from mmcv.ops import box_iou_rotated, points_in_boxes_all, points_in_boxes_part
 from .utils import limit_period
 
 
-class BaseInstance3DBoxes(object):
+class BaseInstance3DBoxes:
     """Base class for 3D Boxes.
 
     Note:

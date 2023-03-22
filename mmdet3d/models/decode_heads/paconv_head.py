@@ -32,7 +32,7 @@ class PAConvHead(PointNet2Head):
                                                                  128, 128)),
                  fp_norm_cfg: ConfigType = dict(type='BN2d'),
                  **kwargs) -> None:
-        super(PAConvHead, self).__init__(
+        super().__init__(
             fp_channels=fp_channels, fp_norm_cfg=fp_norm_cfg, **kwargs)
 
         # https://github.com/CVMI-Lab/PAConv/blob/main/scene_seg/model/pointnet2/pointnet2_paconv_seg.py#L53

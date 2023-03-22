@@ -36,7 +36,7 @@ class MLP(BaseModule):
                  norm_cfg: ConfigType = dict(type='BN1d'),
                  act_cfg: ConfigType = dict(type='ReLU'),
                  init_cfg: OptMultiConfig = None) -> None:
-        super(MLP, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.mlp = nn.Sequential()
         prev_channels = in_channel
         for i, conv_channel in enumerate(conv_channels):

@@ -45,7 +45,7 @@ class NaiveSyncBatchNorm1d(nn.BatchNorm1d):
     """
 
     def __init__(self, *args: list, **kwargs: dict) -> None:
-        super(NaiveSyncBatchNorm1d, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def forward(self, input: Tensor) -> Tensor:
         """
@@ -112,7 +112,7 @@ class NaiveSyncBatchNorm2d(nn.BatchNorm2d):
     """
 
     def __init__(self, *args: list, **kwargs: dict) -> None:
-        super(NaiveSyncBatchNorm2d, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
 
     def forward(self, input: Tensor) -> Tensor:
         """

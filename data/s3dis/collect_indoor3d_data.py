@@ -30,7 +30,7 @@ mmengine.mkdir_or_exist(output_folder)
 # Refer to https://github.com/AnTao97/dgcnn.pytorch/blob/843abe82dd731eb51a4b3f70632c2ed3c60560e9/prepare_data/collect_indoor3d_data.py#L18  # noqa
 revise_file = osp.join(args.data_dir,
                        'Area_5/hallway_6/Annotations/ceiling_1.txt')
-with open(revise_file, 'r') as f:
+with open(revise_file) as f:
     data = f.read()
     # replace that extra character with blank space to separate data
     data = data[:5545347] + ' ' + data[5545348:]

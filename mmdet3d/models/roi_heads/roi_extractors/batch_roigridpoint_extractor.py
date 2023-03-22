@@ -23,7 +23,7 @@ class Batch3DRoIGridExtractor(BaseModule):
                  grid_size: int = 6,
                  roi_layer: dict = None,
                  init_cfg: dict = None) -> None:
-        super(Batch3DRoIGridExtractor, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.roi_grid_pool_layer = MODELS.build(roi_layer)
         self.grid_size = grid_size
 

@@ -71,7 +71,7 @@ class VoteHead(BaseModule):
                  semantic_loss: Optional[dict] = None,
                  iou_loss: Optional[dict] = None,
                  init_cfg: Optional[dict] = None):
-        super(VoteHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.num_classes = num_classes
         self.train_cfg = train_cfg
         self.test_cfg = test_cfg
@@ -692,7 +692,7 @@ class VoteHead(BaseModule):
         objectness_targets[
             euclidean_distance1 < self.train_cfg['pos_distance_thr']] = 1
 
-        objectness_masks = points.new_zeros((proposal_num))
+        objectness_masks = points.new_zeros(proposal_num)
         objectness_masks[
             euclidean_distance1 < self.train_cfg['pos_distance_thr']] = 1.0
         objectness_masks[

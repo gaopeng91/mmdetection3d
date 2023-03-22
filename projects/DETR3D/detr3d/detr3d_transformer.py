@@ -52,7 +52,7 @@ class Detr3DTransformer(BaseModule):
                  two_stage_num_proposals=300,
                  decoder=None,
                  **kwargs):
-        super(Detr3DTransformer, self).__init__(**kwargs)
+        super().__init__(**kwargs)
         self.decoder = build_transformer_layer_sequence(decoder)
         self.embed_dims = self.decoder.embed_dims
         self.num_feature_levels = num_feature_levels
@@ -137,7 +137,7 @@ class Detr3DTransformerDecoder(TransformerLayerSequence):
     """
 
     def __init__(self, *args, return_intermediate=False, **kwargs):
-        super(Detr3DTransformerDecoder, self).__init__(*args, **kwargs)
+        super().__init__(*args, **kwargs)
         self.return_intermediate = return_intermediate
 
     def forward(self,
@@ -236,7 +236,7 @@ class Detr3DCrossAtten(BaseModule):
         init_cfg=None,
         batch_first=False,
     ):
-        super(Detr3DCrossAtten, self).__init__(init_cfg)
+        super().__init__(init_cfg)
         if embed_dims % num_heads != 0:
             raise ValueError(f'embed_dims must be divisible by num_heads, '
                              f'but got {embed_dims} and {num_heads}')

@@ -80,7 +80,7 @@ class BatchSampler:
 
 
 @TRANSFORMS.register_module()
-class DataBaseSampler(object):
+class DataBaseSampler:
     """Class for sampling data from the ground truth database.
 
     Args:

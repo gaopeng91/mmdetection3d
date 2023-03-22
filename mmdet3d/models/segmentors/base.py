@@ -26,7 +26,7 @@ class Base3DSegmentor(BaseModel, metaclass=ABCMeta):
     def __init__(self,
                  data_preprocessor: OptConfigType = None,
                  init_cfg: OptMultiConfig = None):
-        super(Base3DSegmentor, self).__init__(
+        super().__init__(
             data_preprocessor=data_preprocessor, init_cfg=init_cfg)
 
     @property

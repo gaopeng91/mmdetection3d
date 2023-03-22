@@ -7,7 +7,7 @@ import mmengine
 import numpy as np
 
 
-class ScanNetData(object):
+class ScanNetData:
     """ScanNet data.
 
     Generate scannet infos for scannet_converter.
@@ -200,7 +200,7 @@ class ScanNetData(object):
         return list(infos)
 
 
-class ScanNetSegData(object):
+class ScanNetSegData:
     """ScanNet dataset used to generate infos for semantic segmentation task.
 
     Args:

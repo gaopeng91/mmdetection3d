@@ -18,7 +18,7 @@ class PartialBinBasedBBoxCoder(BaseBBoxCoder):
     """
 
     def __init__(self, num_dir_bins, num_sizes, mean_sizes, with_rot=True):
-        super(PartialBinBasedBBoxCoder, self).__init__()
+        super().__init__()
         assert len(mean_sizes) == num_sizes
         self.num_dir_bins = num_dir_bins
         self.num_sizes = num_sizes

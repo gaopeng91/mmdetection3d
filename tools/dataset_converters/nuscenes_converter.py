@@ -64,18 +64,18 @@ def create_nuscenes_infos(root_path,
     train_scenes = list(
         filter(lambda x: x in available_scene_names, train_scenes))
     val_scenes = list(filter(lambda x: x in available_scene_names, val_scenes))
-    train_scenes = set([
+    train_scenes = {
         available_scenes[available_scene_names.index(s)]['token']
         for s in train_scenes
-    ])
-    val_scenes = set([
+    }
+    val_scenes = {
         available_scenes[available_scene_names.index(s)]['token']
         for s in val_scenes
-    ])
+    }
 
     test = 'test' in version
     if test:
-        print('test scene: {}'.format(len(train_scenes)))
+        print(f'test scene: {len(train_scenes)}')
     else:
         print('train scene: {}, val scene: {}'.format(
             len(train_scenes), len(val_scenes)))
@@ -84,21 +84,18 @@ def create_nuscenes_infos(root_path,
 
     metadata = dict(version=version)
     if test:
-        print('test sample: {}'.format(len(train_nusc_infos)))
+        print(f'test sample: {len(train_nusc_infos)}')
         data = dict(infos=train_nusc_infos, metadata=metadata)
-        info_path = osp.join(root_path,
-                             '{}_infos_test.pkl'.format(info_prefix))
+        info_path = osp.join(root_path, f'{info_prefix}_infos_test.pkl')
         mmengine.dump(data, info_path)
     else:
         print('train sample: {}, val sample: {}'.format(
             len(train_nusc_infos), len(val_nusc_infos)))
         data = dict(infos=train_nusc_infos, metadata=metadata)
-        info_path = osp.join(root_path,
-                             '{}_infos_train.pkl'.format(info_prefix))
+        info_path = osp.join(root_path, f'{info_prefix}_infos_train.pkl')
         mmengine.dump(data, info_path)
         data['infos'] = val_nusc_infos
-        info_val_path = osp.join(root_path,
-                                 '{}_infos_val.pkl'.format(info_prefix))
+        info_val_path = osp.join(root_path, f'{info_prefix}_infos_val.pkl')
         mmengine.dump(data, info_val_path)
 
 
@@ -116,7 +113,7 @@ def get_available_scenes(nusc):
             available scenes.
     """
     available_scenes = []
-    print('total scene num: {}'.format(len(nusc.scene)))
+    print(f'total scene num: {len(nusc.scene)}')
     for scene in nusc.scene:
         scene_token = scene['token']
         scene_rec = nusc.get('scene', scene_token)
@@ -139,7 +136,7 @@ def get_available_scenes(nusc):
         if scene_not_exist:
             continue
         available_scenes.append(scene)
-    print('exist scene num: {}'.format(len(available_scenes)))
+    print(f'exist scene num: {len(available_scenes)}')
     return available_scenes
 
 

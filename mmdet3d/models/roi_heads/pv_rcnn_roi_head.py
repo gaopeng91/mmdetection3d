@@ -40,7 +40,7 @@ class PVRCNNRoiHead(Base3DRoIHead):
                  train_cfg: Optional[dict] = None,
                  test_cfg: Optional[dict] = None,
                  init_cfg: Optional[dict] = None):
-        super(PVRCNNRoiHead, self).__init__(
+        super().__init__(
             bbox_head=bbox_head,
             bbox_roi_extractor=bbox_roi_extractor,
             train_cfg=train_cfg,

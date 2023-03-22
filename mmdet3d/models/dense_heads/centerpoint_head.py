@@ -48,7 +48,7 @@ class SeparateHead(BaseModule):
                  **kwargs):
         assert init_cfg is None, 'To prevent abnormal initialization ' \
             'behavior, init_cfg is not allowed to be set'
-        super(SeparateHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         self.heads = heads
         self.init_bias = init_bias
         for head in self.heads:
@@ -162,7 +162,7 @@ class DCNSeparateHead(BaseModule):
                  **kwargs):
         assert init_cfg is None, 'To prevent abnormal initialization ' \
             'behavior, init_cfg is not allowed to be set'
-        super(DCNSeparateHead, self).__init__(init_cfg=init_cfg)
+        super().__init__(init_cfg=init_cfg)
         if 'heatmap' in heads:
             heads.pop('heatmap')
         # feature adaptation with dcn
@@ -299,7 +299,7 @@ class CenterHead(BaseModule):
                  **kwargs):
         assert init_cfg is None, 'To prevent abnormal initialization ' \
             'behavior, init_cfg is not allowed to be set'
-        super(CenterHead, self).__init__(init_cfg=init_cfg, **kwargs)
+        super().__init__(init_cfg=init_cfg, **kwargs)
 
         # TODO we should rename this variable,
         # for example num_classes_per_task ?

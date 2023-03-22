@@ -48,7 +48,7 @@ class CenterFormer(Base3DDetector):
                  init_cfg: Optional[dict] = None,
                  data_preprocessor: Optional[dict] = None,
                  **kwargs):
-        super(CenterFormer, self).__init__(
+        super().__init__(
             init_cfg=init_cfg, data_preprocessor=data_preprocessor, **kwargs)
 
         if voxel_encoder:

@@ -36,7 +36,7 @@ class VoteNet(SingleStage3DDetector):
                  init_cfg: Optional[dict] = None,
                  data_preprocessor: Optional[dict] = None,
                  **kwargs):
-        super(VoteNet, self).__init__(
+        super().__init__(
             backbone=backbone,
             bbox_head=bbox_head,
             train_cfg=train_cfg,

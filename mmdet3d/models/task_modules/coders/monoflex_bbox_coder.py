@@ -48,7 +48,7 @@ class MonoFlexCoder(BaseBBoxCoder):
                  bin_margin,
                  code_size,
                  eps=1e-3):
-        super(MonoFlexCoder, self).__init__()
+        super().__init__()
 
         # depth related
         self.depth_mode = depth_mode
